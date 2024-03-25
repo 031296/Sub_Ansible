@@ -1,6 +1,0 @@
-    aws_region: "your_aws_region"
-    aws_access_key: "your_aws_access_key"
-    aws_secret_key: "your_aws_secret_key"
-    vpc_id: "your_vpc_id"
-    cidr_block: "10.0.1.0/24"
-    subnet_name: "your_subnet_name"

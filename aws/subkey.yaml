@@ -1,0 +1,24 @@
+---
+- name: Create Subnet in AWS
+  hosts: localhost
+  connection: local
+  gather_facts: no
+
+  vars_files:
+    - subvar.yml
+
+  tasks:
+    - name: Set Python interpreter
+      set_fact:
+        ansible_python_interpreter: ansible_env/bin/python
+
+    - name: Create Subnet
+      ec2_vpc_subnet:
+        region: "{{ aws_region }}"
+        aws_access_key: "{{ aws_access_key }}"
+        aws_secret_key: "{{ aws_secret_key }}"
+        vpc_id: "{{ vpc_id }}"
+        cidr: "{{ cidr_block }}"
+        state: present
+        resource_tags:
+          Name: "{{ subnet_name }}"
